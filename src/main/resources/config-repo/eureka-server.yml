@@ -1,0 +1,18 @@
+server:
+  port: ${SERVER_PORT:8761}
+
+eureka:
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
+    prefer-ip-address: true
+  client:
+    # A standalone Eureka server should not register with / fetch from itself.
+    # For a multi-zone HA cluster, set EUREKA_PEER_URLS to the other nodes'
+    # /eureka endpoints (comma separated) and both flags become true.
+    register-with-eureka: ${EUREKA_PEER_MODE:false}
+    fetch-registry: ${EUREKA_PEER_MODE:false}
+    service-url:
+      defaultZone: ${EUREKA_PEER_URLS:http://localhost:8761/eureka}
+  server:
+    enable-self-preservation: true
+    eviction-interval-timer-in-ms: 5000

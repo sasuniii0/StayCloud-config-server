@@ -1,0 +1,12 @@
+server:
+  port: ${SERVER_PORT:8081}
+
+spring:
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/hotel_rooms}
+
+gcp:
+  storage:
+    bucket-name: ${GCS_BUCKET_NAME:hotel-room-images}
+    project-id: ${GCP_PROJECT_ID:}
