@@ -1,5 +1,5 @@
-# Shared configuration inherited by every microservice that pulls from Config Server.
-# Service-specific files (e.g. room-service.yml) override/extend these values.
+# Shared settings for every StayCloud service (local + cloud).
+# Cloud overrides: set EUREKA_URI to the Eureka VM internal URL.
 
 eureka:
   client:

@@ -1,3 +1,4 @@
+# room-service — MongoDB: hotel_rooms + GCS bucket for photos
 server:
   port: ${SERVER_PORT:8081}
 
@@ -5,6 +6,10 @@ spring:
   data:
     mongodb:
       uri: ${MONGODB_URI:mongodb://localhost:27017/hotel_rooms}
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
 
 gcp:
   storage:
