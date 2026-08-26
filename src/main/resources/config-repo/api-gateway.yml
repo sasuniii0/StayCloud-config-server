@@ -28,5 +28,4 @@ spring:
 
 app:
   cors:
-    # Include Cloud Run frontend URL after deploy; * works for class demo
-    allowed-origins: ${CORS_ALLOWED_ORIGINS:*}
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:https://staycloud-frontend-5hygiw3kyq-el.a.run.app,https://staycloud-frontend-974335963851.asia-south1.run.app,http://localhost:5173,http://localhost:3000}
