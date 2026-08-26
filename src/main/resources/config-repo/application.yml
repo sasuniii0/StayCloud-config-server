@@ -1,10 +1,10 @@
-# Shared settings for every StayCloud service (local + cloud).
-# Cloud overrides: set EUREKA_URI to the Eureka VM internal URL.
+# Shared settings for every StayCloud service.
+# Defaults target GCP project staycloud (hotel-vpc). Override with env for local Docker.
 
 eureka:
   client:
     service-url:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI:http://10.10.0.13:8761/eureka,http://10.10.0.12:8761/eureka}
     register-with-eureka: true
     fetch-registry: true
   instance:

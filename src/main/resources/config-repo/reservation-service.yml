@@ -1,12 +1,12 @@
-# reservation-service — Postgres: hotel_reservations
+# reservation-service — Postgres hotel_reservations (Cloud SQL private IP)
 server:
   port: ${SERVER_PORT:8082}
 
 spring:
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/hotel_reservations}
+    url: ${DB_URL:jdbc:postgresql://10.149.209.3:5432/hotel_reservations}
     username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:postgres}
+    password: "${DB_PASSWORD:HotelPg#2026!}"
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

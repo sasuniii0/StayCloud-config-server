@@ -28,4 +28,5 @@ spring:
 
 app:
   cors:
-    allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:5173,http://localhost:3000}
+    # Include Cloud Run frontend URL after deploy; * works for class demo
+    allowed-origins: ${CORS_ALLOWED_ORIGINS:*}

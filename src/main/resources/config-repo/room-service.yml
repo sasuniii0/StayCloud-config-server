@@ -1,11 +1,15 @@
-# room-service — MongoDB: hotel_rooms + GCS bucket for photos
+# room-service — MongoDB hotel_rooms + GCS photos (staycloud defaults)
 server:
   port: ${SERVER_PORT:8081}
 
+# Spring Boot 3.x style
 spring:
   data:
     mongodb:
-      uri: ${MONGODB_URI:mongodb://localhost:27017/hotel_rooms}
+      uri: "${MONGODB_URI:mongodb://root:hotelmongo@10.10.0.2:27017/hotel_rooms?authSource=admin}"
+  # Spring Boot 4.x also reads spring.mongodb.*
+  mongodb:
+    uri: "${MONGODB_URI:mongodb://root:hotelmongo@10.10.0.2:27017/hotel_rooms?authSource=admin}"
   servlet:
     multipart:
       max-file-size: 5MB
@@ -14,4 +18,4 @@ spring:
 gcp:
   storage:
     bucket-name: ${GCS_BUCKET_NAME:hotel-room-images}
-    project-id: ${GCP_PROJECT_ID:}
+    project-id: ${GCP_PROJECT_ID:staycloud}
