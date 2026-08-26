@@ -6,13 +6,11 @@ eureka:
     hostname: ${EUREKA_INSTANCE_HOSTNAME:localhost}
     prefer-ip-address: true
   client:
-    # A standalone Eureka server should not register with / fetch from itself.
-    # For a multi-zone HA cluster, set EUREKA_PEER_URLS to the other nodes'
-    # /eureka endpoints (comma separated) and both flags become true.
-    register-with-eureka: ${EUREKA_PEER_MODE:false}
-    fetch-registry: ${EUREKA_PEER_MODE:false}
+    # staycloud platform MIG: both Eureka VMs peer so every gateway sees all services
+    register-with-eureka: ${EUREKA_PEER_MODE:true}
+    fetch-registry: ${EUREKA_PEER_MODE:true}
     service-url:
-      defaultZone: ${EUREKA_PEER_URLS:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_PEER_URLS:http://10.10.0.13:8761/eureka,http://10.10.0.12:8761/eureka}
   server:
     enable-self-preservation: true
     eviction-interval-timer-in-ms: 5000
