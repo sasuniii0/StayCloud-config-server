@@ -1,6 +1,9 @@
 # config-server
 
-> **Student Name:** Sasuni Wijerathne
+> **Student Name:** Sasuni Jinethma Wijerathne
+> **Student Number:** 241711085
+> **Slack Handle:** _[optional]_
+> **GCP Project ID:** `staycloud`
 
 ## Project Description
 
